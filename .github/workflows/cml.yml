@@ -21,4 +21,4 @@ jobs:
           echo "Cat:"
           cat report.md
           echo "Third"
-          cml-send-comment report.md --head-sha ${{ github.event.pull_request.head.sha }}
+          cml-send-comment report.md
