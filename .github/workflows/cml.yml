@@ -1,14 +1,12 @@
 name: model-training
-
 on: [pull_request]
-
 jobs:
   run:
-    runs-on: ubuntu-latest
-    container: dvcorg/cml-py3:latest
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - name: CML run
+      - name: cml_run
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -17,4 +15,4 @@ jobs:
 
           cat metrics.txt >> report.md
           cml-publish confusion_matrix.png --md >> report.md
-          cml-send-comment report.md --head-sha ${{ github.event.pull_request.head.sha }}
+          cml-send-comment report.md
