@@ -13,6 +13,10 @@ jobs:
           pip install -r requirements.txt
           python train.py
 
+          ls -la
+          echo "First"
           cat metrics.txt >> report.md
+          echo "Second"
           cml-publish confusion_matrix.png --md >> report.md
-          cml-send-comment report.md
+          echo "Third"
+          cml-send-comment report.md --head-sha ${{ github.event.pull_request.head.sha }}
