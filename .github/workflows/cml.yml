@@ -13,12 +13,15 @@ jobs:
           pip install -r requirements.txt
           python train.py
 
-          ls -la
-          echo "First"
-          cat metrics.txt >> report.md
-          echo "Second"
-          cml-publish confusion_matrix.png --md >> report.md
-          echo "Cat:"
-          cat report.md
-          echo "Third"
+          # ls -la
+          # echo "First"
+          # cat metrics.txt >> report.md
+          # echo "Second"
+          # cml-publish confusion_matrix.png --md >> report.md
+          # echo "Cat:"
+          # cat report.md
+          # echo "Third"
+          # cml-send-comment report.md
+          # Write your CML report
+          echo "This works yet?" >> report.md
           cml-send-comment report.md
